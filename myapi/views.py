@@ -14,7 +14,7 @@ def hello_world(request):
 
 
 def getAPokemon():
-    url = "https://pokeapi.co/api/v2/pokemon/ditto"
+    url = "https://pokeapi.co/api/v2/pokemon/magikarp"
 
     # Make the GET request
     response = requests.get(url)
@@ -25,7 +25,8 @@ def getAPokemon():
         data = response.json()
         # poke_type = data.get("types")
         name = data.get("name")
-        image = data.get("sprites").get("front_shiny")
+        image = data.get("sprites").get("other").get("home").get("front_default")
+        types = data.get("types")
         pokemon={
             "name":name,
             "image":image
